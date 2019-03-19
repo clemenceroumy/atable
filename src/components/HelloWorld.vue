@@ -75,9 +75,6 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String
-  },
-  created() {
-    console.log(process);
   }
 };
 </script>
