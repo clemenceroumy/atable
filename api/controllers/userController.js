@@ -13,3 +13,10 @@ exports.getUser = function(userID, callback) {
     callback(null, data);
   });
 };
+
+exports.connectUser = function(login, password, callback) {
+  userModel.connectUser(login, password, function(error, data) {
+    if (error) throw error;
+    callback(null, data);
+  });
+};
