@@ -72,9 +72,12 @@ export default {
         )
         .then(response => {
           if (response.data[0].haveAccount === 0) {
-            //TODO: show snackbar
+            this.$store.commit("setShowSnackbar", {
+              value: true,
+              message: this.$t("snackbar.errorLogin"),
+              color: "red lighten-1"
+            });
           } else {
-            //TODO: put user value in the store
             let user = {
               login: response.data[0].login,
               password: response.data[0].password

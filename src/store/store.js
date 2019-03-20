@@ -7,21 +7,22 @@ export default new Vuex.Store({
   state: {
     user: null,
     showSnackbar: false,
-    messageSnackbar: "",
-    colorSnackbar: ""
+    messageSnackbar: null,
+    colorSnackbar: null
   },
   mutations: {
     setUser: (state, user) => {
       state.user = user;
     },
-    setShowSnackbar: (state, value) => {
-      state.showSnackbar = value;
+    setShowSnackbar: (state, values) => {
+      state.showSnackbar = values.value;
+      state.messageSnackbar = values.message;
+      state.colorSnackbar = values.color;
     },
-    setMessageSnackbar: (state, value) => {
-      state.messageSnackbar = value;
-    },
-    setColorSnackbar: (state, value) => {
-      state.colorSnackbar = value;
+    closeSnackbar: state => {
+      state.showSnackbar = false;
+      state.messageSnackbar = null;
+      state.colorSnackbar = null;
     }
   },
   actions: {}

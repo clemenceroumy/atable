@@ -1,5 +1,11 @@
 {
   "connexion": "Connexion",
   "email": "email",
-  "password": "mot de passe"
+  "password": "mot de passe",
+
+  "close": "fermer",
+
+  "snackbar": {
+    "errorLogin": "L'identifiant ou le mot de passe est incorrect"
+  }
 }
