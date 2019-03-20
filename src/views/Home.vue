@@ -8,7 +8,7 @@
               <h3 class="headline mb-0 mt-3">{{$t('connexion')}}</h3>
             </div>
           </v-card-title>
-
+          {{this.user}}
           <v-card-actions class="pb-5 pt-3">
             <v-flex sm12 md6 mx-auto>
               <v-form class="mx-auto">
@@ -30,7 +30,13 @@
                 ></v-text-field>
 
                 <v-layout class="pt-2">
-                  <v-btn color="success" round large class="mx-auto">{{$t('connexion')}}</v-btn>
+                  <v-btn
+                    v-on:click="connectUser"
+                    color="success"
+                    round
+                    large
+                    class="mx-auto"
+                  >{{$t('connexion')}}</v-btn>
                 </v-layout>
               </v-form>
             </v-flex>
@@ -43,6 +49,7 @@
 
 <script>
 import axios from "axios";
+import { mapState } from "vuex";
 
 export default {
   name: "home",
@@ -52,16 +59,33 @@ export default {
       password: ""
     };
   },
-  created() {
-    axios
-      .get(`http://localhost:3000/users/1`)
-      .then(response => {
-        // JSON responses are automatically parsed.
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  computed: {
+    ...mapState(["user"])
+  },
+  methods: {
+    connectUser() {
+      axios
+        .get(
+          `http://localhost:3000/users/connect?login=${this.email}&password=${
+            this.password
+          }`
+        )
+        .then(response => {
+          if (response.data[0].haveAccount === 0) {
+            //TODO: show snackbar
+          } else {
+            //TODO: put user value in the store
+            let user = {
+              login: response.data[0].login,
+              password: response.data[0].password
+            };
+            this.$store.commit("setUser", user);
+          }
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
   }
 };
 </script>

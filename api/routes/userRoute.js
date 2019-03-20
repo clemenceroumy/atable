@@ -10,8 +10,8 @@ module.exports = function(app) {
   });
 
   app.route("/users/connect").get(function(req, res) {
-    let login = req.body.login;
-    let password = req.body.password;
+    let login = req.query.login;
+    let password = req.query.password;
     var result = user.connectUser(login, password, function(error, data) {
       if (error) throw error;
       res.send(data);
