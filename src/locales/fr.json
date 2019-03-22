@@ -2,6 +2,8 @@
   "connexion": "Connexion",
   "email": "email",
   "password": "mot de passe",
+  "noAccount": "Pas inscrit ? ",
+  "signup": "Créer un compte",
 
   "close": "fermer",
 

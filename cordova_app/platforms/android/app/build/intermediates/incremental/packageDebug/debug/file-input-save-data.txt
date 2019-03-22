@@ -1,17 +1,18 @@
 #Internal package file, do not edit.
-#Tue Mar 19 22:00:38 CET 2019
-4.path=www/js/app.6876ccb0.js.map
+#Fri Mar 22 20:46:26 CET 2019
+4.path=www/js/chunk-vendors.35b24dba.js.map
 13.baseType=DIRECTORY
 8.set=ASSET
-6.path=www/cordova-js-src/plugin/android/app.js
+6.path=www/index.html
 0.baseType=DIRECTORY
-10.path=www/cordova-js-src/android/nativeapiprovider.js
+10.path=www/css/app.71738c26.css
 5.baseType=DIRECTORY
 1.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
-8.path=www/index.html
-12.path=www/js/app.6876ccb0.js
+8.path=www/js/app.98ea4352.js.map
+12.path=www/js/chunk-vendors.35b24dba.js
 3.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
-14.path=www/cordova_plugins.js
+14.path=www/favicon.ico
+15.set=ASSET
 4.set=ASSET
 5.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 7.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
@@ -21,6 +22,7 @@
 1.baseType=DIRECTORY
 11.set=ASSET
 0.set=ASSET
+15.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 14.baseType=DIRECTORY
 6.baseType=DIRECTORY
 7.set=ASSET
@@ -28,20 +30,22 @@
 3.set=ASSET
 2.baseType=DIRECTORY
 10.baseType=DIRECTORY
+15.baseType=DIRECTORY
 1.path=www/cordova.js
 7.baseType=DIRECTORY
 3.path=www/cordova-js-src/android/promptbasednativeapi.js
 10.set=ASSET
-5.path=www/js/chunk-vendors.2639fe50.js
+5.path=www/cordova-js-src/plugin/android/app.js
 0.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
-7.path=www/css/chunk-vendors.3352254c.css
-11.path=www/js/chunk-vendors.2639fe50.js.map
-9.path=www/cordova-js-src/exec.js
+7.path=www/cordova-js-src/exec.js
+11.path=www/css/chunk-vendors.0a320730.css
+9.path=www/cordova-js-src/android/nativeapiprovider.js
 6.set=ASSET
 2.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-13.path=www/favicon.ico
+13.path=www/js/app.98ea4352.js
 11.baseType=DIRECTORY
 4.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
+15.path=www/cordova_plugins.js
 3.baseType=DIRECTORY
 6.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 10.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
@@ -52,7 +56,7 @@
 12.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 14.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 9.set=ASSET
-count=15
+count=16
 12.baseType=DIRECTORY
 4.baseType=DIRECTORY
 5.set=ASSET

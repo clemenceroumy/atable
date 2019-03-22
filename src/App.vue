@@ -23,3 +23,11 @@ export default {
   }
 };
 </script>
+
+<style>
+#app {
+  background: linear-gradient(to right, #1a2457, #2f1a57);
+  color: white;
+}
+</style>
+
