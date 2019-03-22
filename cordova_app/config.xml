@@ -7,6 +7,8 @@
     <author email="clemenceroumy@gmail.com" href="http://clemenceroumy.xyz">
         Clémence Roumy
     </author>
+    <icon density="hdpi" height="57" platform="ios" src="res/icon/android/ic_launcher.png" width="57" />
+    <preference name="StatusBarBackgroundColor" value="#17214f" />
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
@@ -23,5 +25,6 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
     <engine name="android" spec="^7.1.4" />
 </widget>

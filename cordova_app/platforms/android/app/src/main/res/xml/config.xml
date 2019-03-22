@@ -4,6 +4,10 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
     <name>aTable</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -11,6 +15,7 @@
     <author email="clemenceroumy@gmail.com" href="http://clemenceroumy.xyz">
         Clémence Roumy
     </author>
+    <icon density="hdpi" height="57" platform="ios" src="res/icon/android/ic_launcher.png" width="57" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -21,4 +26,5 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="StatusBarBackgroundColor" value="#17214f" />
 </widget>
