@@ -20,3 +20,20 @@ exports.connectUser = function(login, password, callback) {
     callback(null, data);
   });
 };
+
+exports.signupUser = function(payload, callback) {
+  //TODO: check that all values are not null before insert
+  userModel.checkIfUserExist(payload.login, function(error, data) {
+    //IF user exist -> show error
+    if (data.length > 0) {
+      callback(null, "Un compte avec cette adresse existe déjà");
+    }
+    //ELSE -> create account
+    else {
+      userModel.signupUser(payload, function(error, data) {
+        if (error) throw error;
+        callback(null, data);
+      });
+    }
+  });
+};

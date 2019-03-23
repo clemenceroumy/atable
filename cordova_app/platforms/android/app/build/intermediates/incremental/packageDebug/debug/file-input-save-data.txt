@@ -1,17 +1,17 @@
 #Internal package file, do not edit.
-#Fri Mar 22 21:46:45 CET 2019
-4.path=www/js/chunk-vendors.35b24dba.js.map
+#Sat Mar 23 21:03:10 CET 2019
+4.path=www/plugins/cordova-plugin-statusbar/www/statusbar.js
 13.baseType=DIRECTORY
 8.set=ASSET
 6.path=www/cordova-js-src/plugin/android/app.js
 0.baseType=DIRECTORY
-10.path=www/cordova-js-src/android/nativeapiprovider.js
+10.path=www/js/chunk-vendors.30e55741.js.map
 5.baseType=DIRECTORY
 1.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
-8.path=www/cordova-js-src/exec.js
-12.path=www/css/chunk-vendors.0a320730.css
+8.path=www/js/app.e5f0c3a2.js
+12.path=www/css/app.71738c26.css
 3.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
-14.path=www/js/app.98ea4352.js
+14.path=www/js/chunk-vendors.30e55741.js
 15.set=ASSET
 4.set=ASSET
 5.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
@@ -36,14 +36,14 @@
 7.baseType=DIRECTORY
 3.path=www/cordova-js-src/android/promptbasednativeapi.js
 10.set=ASSET
-5.path=www/plugins/cordova-plugin-statusbar/www/statusbar.js
+5.path=www/js/app.e5f0c3a2.js.map
 0.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 7.path=www/index.html
-11.path=www/css/app.71738c26.css
-9.path=www/js/app.98ea4352.js.map
+11.path=www/cordova-js-src/android/nativeapiprovider.js
+9.path=www/cordova-js-src/exec.js
 6.set=ASSET
 2.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-13.path=www/js/chunk-vendors.35b24dba.js
+13.path=www/css/chunk-vendors.0a320730.css
 11.baseType=DIRECTORY
 4.base=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 15.path=www/favicon.ico

@@ -7,7 +7,22 @@
 
   "close": "fermer",
 
+  "signupPage": {
+    "name": "nom",
+    "firstName": "prenom",
+    "signup": "inscription",
+    "ok": "Vous êtes désormais inscrit"
+  },
+
   "snackbar": {
     "errorLogin": "L'identifiant ou le mot de passe est incorrect"
+  },
+
+  "validation": {
+    "required": "Le champs ne peut être vide",
+    "requiredPassword": "Le mot de passe est obligatoire",
+    "invalidPassword": "Le mot de passe doit être au moins de 6 caractères",
+    "requiredEmail": "L'email est obligatoire",
+    "invalidEmail": "L'email est invalide"
   }
 }
