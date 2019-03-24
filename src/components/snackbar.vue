@@ -12,7 +12,7 @@ import { mapState } from "vuex";
 import { setTimeout } from "timers";
 
 export default {
-  name: "snackbar",
+  name: "Snackbar",
   computed: {
     ...mapState(["showSnackbar", "messageSnackbar", "colorSnackbar"])
   },

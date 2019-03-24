@@ -14,8 +14,18 @@
     "ok": "Vous êtes désormais inscrit"
   },
 
+  "home": {
+    "searchBar": "Entrez le nom de la ville ou du restaurant"
+  },
+
   "snackbar": {
     "errorLogin": "L'identifiant ou le mot de passe est incorrect"
+  },
+
+  "navbar": {
+    "home": "Accueil",
+    "reservation": "Mes réservations",
+    "account": "Mon compte"
   },
 
   "validation": {
