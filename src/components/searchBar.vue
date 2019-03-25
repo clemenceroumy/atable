@@ -1,13 +1,13 @@
 <template>
   <div>
-    {{searchValue}}
     <v-autocomplete
       :items="cities"
       item-text="name"
       item-value="id"
       :label="$t('home.searchBar')"
       color="#88879d"
-      v-model="searchValue"
+      v-model="cityId"
+      v-on:input="getCity"
       outline
       dark
     ></v-autocomplete>
@@ -22,7 +22,7 @@ export default {
   name: "SearchBar",
   data() {
     return {
-      searchValue: "",
+      cityId: "",
       cities: []
     };
   },
@@ -40,6 +40,11 @@ export default {
       .catch(e => {
         console.log(e);
       });
+  },
+  methods: {
+    getCity() {
+      this.$emit("cityIdChild", this.cityId);
+    }
   }
 };
 </script>
