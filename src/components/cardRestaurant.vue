@@ -1,5 +1,5 @@
 <template>
-  <v-card color="indigo" dark>
+  <v-card color="#88879d" class="ma-2">
     <v-layout>
       <v-flex xs5>
         <v-img :src="restaurant.logoRestaurant" contain></v-img>

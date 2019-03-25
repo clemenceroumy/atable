@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <v-autocomplete
-      :items="cities"
-      item-text="name"
-      item-value="id"
-      :label="$t('home.searchBar')"
-      color="#88879d"
-      v-model="cityId"
-      v-on:input="getCity"
-      outline
-      dark
-    ></v-autocomplete>
-  </div>
+  <v-autocomplete
+    :items="cities"
+    item-text="name"
+    item-value="id"
+    :label="$t('home.searchBar')"
+    color="#88879d"
+    v-model="cityId"
+    v-on:input="getCity"
+    outline
+    dark
+  ></v-autocomplete>
 </template>
 
 <script>

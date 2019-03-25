@@ -1,18 +1,18 @@
 <template>
   <div>
-    <v-flex xs12>
-      <searchBar v-on:cityIdChild="getCityId"/>
-    </v-flex>
+    <v-layout row wrap>
+      <v-flex xs12>
+        <searchBar v-on:cityIdChild="getCityId"/>
+      </v-flex>
 
-    <v-flex xs12>
-      <v-list>
-        <template v-for="(restaurant) in restaurants">
-          <v-list-tile :key="restaurant.idRestaurant">
-            <cardRestaurant :restaurant="restaurant"/>
-          </v-list-tile>
-        </template>
-      </v-list>
-    </v-flex>
+      <v-flex xs12>
+        <v-list>
+          <template v-for="(restaurant) in restaurants">
+            <cardRestaurant :restaurant="restaurant" :key="restaurant.idRestaurant"/>
+          </template>
+        </v-list>
+      </v-flex>
+    </v-layout>
 
     <bottomNavbar/>
   </div>
@@ -60,3 +60,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.theme--light.v-list {
+  background-color: rgba(0, 0, 0, 0);
+}
+</style>
