@@ -23,7 +23,7 @@ exports.getRestaurantById = function(restaurantId, callback) {
 
 exports.getRestaurantByCityId = function(cityId, callback) {
   connection.query(
-    "SELECT restaurant.idRestaurant, nomRestaurant, descriptionRestaurant, nombrePlaces, logoRestaurant, ville.idVille, nomVille, type.idType, libelleType FROM restaurant INNER JOIN ville ON restaurant.idVille = ville.idVille LEFT JOIN atype ON atype.idRestaurant = restaurant.idRestaurant LEFT JOIN type ON atype.idType = type.idType  WHERE ville.idVille = " +
+    "SELECT restaurant.idRestaurant, nomRestaurant, descriptionRestaurant, nombrePlaces, logoRestaurant, ville.idVille, nomVille FROM restaurant INNER JOIN ville ON restaurant.idVille = ville.idVille  WHERE ville.idVille = " +
       cityId,
     function(error, results, fields) {
       if (error) throw error;

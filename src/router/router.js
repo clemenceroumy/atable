@@ -4,6 +4,7 @@ import Router from "vue-router";
 import Login from "@/views/Login";
 import Signup from "@/views/Signup";
 import Home from "@/views/Home";
+import Restaurant from "@/views/Restaurant";
 
 Vue.use(Router);
 
@@ -23,6 +24,11 @@ export default new Router({
       path: "/home",
       name: "home",
       component: Home
+    },
+    {
+      path: "/restaurant/:idRestaurant",
+      name: "restaurant",
+      component: Restaurant
     }
   ]
 });

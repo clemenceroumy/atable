@@ -8,7 +8,12 @@
       <v-flex xs12>
         <v-list>
           <template v-for="(restaurant) in restaurants">
-            <cardRestaurant :restaurant="restaurant" :key="restaurant.idRestaurant"/>
+            <router-link
+              :to="{name: 'restaurant', params:{idRestaurant: restaurant.idRestaurant}}"
+              :key="restaurant.idRestaurant"
+            >
+              <cardRestaurant :restaurant="restaurant"/>
+            </router-link>
           </template>
         </v-list>
       </v-flex>
