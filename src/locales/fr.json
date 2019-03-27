@@ -18,6 +18,12 @@
     "searchBar": "Entrez le nom de la ville ou du restaurant"
   },
 
+  "restaurant": {
+    "numberPlace": "Nombre de places total",
+    "type": "type de restaurant",
+    "book": "Réserver"
+  },
+
   "snackbar": {
     "errorLogin": "L'identifiant ou le mot de passe est incorrect"
   },
