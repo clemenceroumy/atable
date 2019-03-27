@@ -9,6 +9,20 @@ module.exports = function(app) {
     });
   });
 
+  app.route("/restaurants/book").post(function(req, res) {
+    let value = req.body;
+
+    var result = restaurant.bookRestaurant(
+      value.idRestaurant,
+      value.idClient,
+      value.date,
+      function(error, data) {
+        if (error) throw error;
+        res.send(data);
+      }
+    );
+  });
+
   app.route("/restaurants/:restaurantId").get(function(req, res) {
     let restaurantId = req.params.restaurantId;
 

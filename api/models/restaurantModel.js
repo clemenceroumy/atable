@@ -31,3 +31,19 @@ exports.getRestaurantByCityId = function(cityId, callback) {
     }
   );
 };
+
+exports.bookRestaurant = function(idRestaurant, idClient, date, callback) {
+  connection.query(
+    "INSERT INTO reserve (idRestaurant, idClient, date, estRendu) VALUES (" +
+      idRestaurant +
+      ", " +
+      idClient +
+      ", '" +
+      date +
+      "', 0)",
+    function(error, results, fields) {
+      if (error) throw error;
+      callback(null, results);
+    }
+  );
+};
