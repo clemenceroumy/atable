@@ -19,7 +19,8 @@
         </v-flex>
 
         <v-flex xs12>
-          <v-btn color="success">{{ $t('restaurant.book') }}</v-btn>
+          <datePicker v-on:dateTimeChild="getDateTime"/>
+          {{dateTime}}
         </v-flex>
       </v-layout>
     </v-container>
@@ -28,20 +29,28 @@
 
 <script>
 import btnBack from "../components/btnBack";
+import datePicker from "../components/datePicker";
 
+import { mapState } from "vuex";
 import axios from "axios";
 import config from "../config/config.js";
 
 export default {
   name: "Restaurant",
-  components: { btnBack },
+  components: { btnBack, datePicker },
   data() {
     return {
       restaurantId: this.$route.params.idRestaurant,
-      restaurant: {}
+      restaurant: {},
+      dateTime: ""
     };
   },
+  computed: {
+    ...mapState(["user"])
+  },
   created() {
+    console.log(this.user);
+
     axios
       .get(`${config.api}/restaurants/${this.restaurantId}`)
       .then(response => {
@@ -51,6 +60,28 @@ export default {
       .catch(e => {
         console.log(e);
       });
+  },
+  methods: {
+    getDateTime(value) {
+      this.dateTime = value;
+
+      axios
+        .post(`${config.api}/restaurants/book`, {
+          idRestaurant: this.restaurantId,
+          idClient: this.$store.state.user.idClient,
+          date: value
+        })
+        .then(response => {
+          this.$store.commit("setShowSnackbar", {
+            value: true,
+            message: this.$t("restaurant.bookingOK"),
+            color: "green lighten-1"
+          });
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
   }
 };
 </script>

@@ -21,7 +21,8 @@
   "restaurant": {
     "numberPlace": "Nombre de places total",
     "type": "type de restaurant",
-    "book": "Réserver"
+    "book": "Réserver",
+    "bookingOK": "Votre réservation à été enregistrée"
   },
 
   "snackbar": {
