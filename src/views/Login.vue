@@ -91,6 +91,7 @@ export default {
             });
           } else {
             let user = {
+              idClient: response.data[0].idClient,
               login: response.data[0].login,
               password: response.data[0].password
             };

@@ -19,7 +19,7 @@ exports.getUser = function(userID, callback) {
 
 exports.connectUser = function(login, password, callback) {
   connection.query(
-    "SELECT COUNT(idClient) AS haveAccount, login, password FROM client WHERE login='" +
+    "SELECT COUNT(idClient) AS haveAccount, idClient, login, password FROM client WHERE login='" +
       login +
       "' AND password='" +
       password +
