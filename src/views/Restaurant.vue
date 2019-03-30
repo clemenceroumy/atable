@@ -32,8 +32,7 @@ import btnBack from "../components/btnBack";
 import datePicker from "../components/datePicker";
 
 import { mapState } from "vuex";
-import axios from "axios";
-import config from "../config/config.js";
+import restaurantDao from "../dao/restaurant.js";
 
 export default {
   name: "Restaurant",
@@ -51,22 +50,17 @@ export default {
   created() {
     console.log(this.user);
 
-    axios
-      .get(`${config.api}/restaurants/${this.restaurantId}`)
-      .then(response => {
-        this.restaurant = response.data;
-        console.log(this.restaurant);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+    restaurantDao.getRestaurantById(this.restaurantId).then(response => {
+      this.restaurant = response.data;
+      console.log(this.restaurant);
+    });
   },
   methods: {
     getDateTime(value) {
       this.dateTime = value;
 
-      axios
-        .post(`${config.api}/restaurants/book`, {
+      restaurantDao
+        .bookRestaurant({
           idRestaurant: this.restaurantId,
           idClient: this.$store.state.user.idClient,
           date: value
@@ -77,9 +71,6 @@ export default {
             message: this.$t("restaurant.bookingOK"),
             color: "green lighten-1"
           });
-        })
-        .catch(e => {
-          console.log(e);
         });
     }
   }

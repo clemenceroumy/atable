@@ -68,13 +68,13 @@
   </v-slide-y-transition>
 </template>
 <script>
-import axios from "axios";
-import config from "../config/config.js";
 import {
   requiredRule,
   passwordRules,
   emailRules
 } from "../helpers/validation.js";
+
+import userDao from "../dao/user.js";
 
 export default {
   name: "Signup",
@@ -94,8 +94,8 @@ export default {
   },
   methods: {
     signupUser() {
-      axios
-        .post(`${config.api}/users/signup`, {
+      userDao
+        .signup({
           login: this.login,
           password: this.password,
           lastName: this.lastName,
@@ -115,9 +115,6 @@ export default {
               color: "red lighten-1"
             });
           }
-        })
-        .catch(e => {
-          console.log(e);
         });
     }
   }

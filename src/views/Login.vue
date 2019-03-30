@@ -59,9 +59,9 @@
 </template>
 
 <script>
-import axios from "axios";
 import { mapState } from "vuex";
-import config from "../config/config.js";
+
+import userDao from "../dao/user.js";
 
 export default {
   name: "login",
@@ -76,32 +76,23 @@ export default {
   },
   methods: {
     connectUser() {
-      axios
-        .get(
-          `${config.api}/users/connect?login=${this.email}&password=${
-            this.password
-          }`
-        )
-        .then(response => {
-          if (response.data[0].haveAccount === 0) {
-            this.$store.commit("setShowSnackbar", {
-              value: true,
-              message: this.$t("snackbar.errorLogin"),
-              color: "red lighten-1"
-            });
-          } else {
-            let user = {
-              idClient: response.data[0].idClient,
-              login: response.data[0].login,
-              password: response.data[0].password
-            };
-            this.$store.commit("setUser", user);
-            this.$router.push("home");
-          }
-        })
-        .catch(e => {
-          console.log(e);
-        });
+      userDao.login(this.email, this.password).then(response => {
+        if (response.data[0].haveAccount === 0) {
+          this.$store.commit("setShowSnackbar", {
+            value: true,
+            message: this.$t("snackbar.errorLogin"),
+            color: "red lighten-1"
+          });
+        } else {
+          let user = {
+            idClient: response.data[0].idClient,
+            login: response.data[0].login,
+            password: response.data[0].password
+          };
+          this.$store.commit("setUser", user);
+          this.$router.push("home");
+        }
+      });
     },
     goToSignup() {
       this.$router.push("/signup");

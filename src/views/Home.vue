@@ -29,8 +29,7 @@ import bottomNavbar from "../components/bottomNavbar";
 import searchBar from "../components/searchBar";
 import cardRestaurant from "../components/cardRestaurant";
 
-import config from "../config/config.js";
-import axios from "axios";
+import restaurantDao from "../dao/restaurant";
 
 export default {
   name: "home",
@@ -47,14 +46,9 @@ export default {
   watch: {
     cityId: {
       handler: function() {
-        axios
-          .get(`${config.api}/restaurants/city/${this.cityId}`)
-          .then(response => {
-            this.restaurants = response.data;
-          })
-          .catch(e => {
-            console.log(e);
-          });
+        restaurantDao.getRestaurantByCity(this.cityId).then(response => {
+          this.restaurants = response.data;
+        });
       }
     }
   },
