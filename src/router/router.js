@@ -5,6 +5,8 @@ import Login from "@/views/Login";
 import Signup from "@/views/Signup";
 import Home from "@/views/Home";
 import Restaurant from "@/views/Restaurant";
+import Booking from "@/views/Booking";
+import Account from "@/views/Account";
 
 Vue.use(Router);
 
@@ -29,6 +31,16 @@ export default new Router({
       path: "/restaurant/:idRestaurant",
       name: "restaurant",
       component: Restaurant
+    },
+    {
+      path: "/booking",
+      name: "booking",
+      component: Booking
+    },
+    {
+      path: "/account",
+      name: "account",
+      component: Account
     }
   ]
 });
