@@ -15,4 +15,10 @@ export default class userDao {
       console.log(e);
     });
   }
+
+  static getUser(userId) {
+    return axios.get(`${config.api}/users/${userId}`).catch(e => {
+      console.log(e);
+    });
+  }
 }
