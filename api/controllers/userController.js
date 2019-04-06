@@ -37,3 +37,10 @@ exports.signupUser = function(payload, callback) {
     }
   });
 };
+
+exports.getReservationByUser = function(idClient, callback) {
+  userModel.getReservationByUser(idClient, function(error, data) {
+    if (error) throw error;
+    callback(null, data);
+  });
+};

@@ -18,6 +18,14 @@ module.exports = function(app) {
     });
   });
 
+  app.route("/users/:idClient/booking").get(function(req, res) {
+    let idClient = req.params.idClient;
+    var result = user.getReservationByUser(idClient, function(error, data) {
+      if (error) throw error;
+      res.send(data);
+    });
+  });
+
   app.route("/users/signup").post(function(req, res) {
     let payload = req.body;
     var result = user.signupUser(payload, function(error, data) {

@@ -58,3 +58,14 @@ exports.checkIfUserExist = function(login, callback) {
     }
   );
 };
+
+exports.getReservationByUser = function(idClient, callback) {
+  connection.query(
+    "SELECT restaurant.idRestaurant, nomRestaurant, logoRestaurant, reserve.date, nomVille FROM client INNER JOIN reserve ON client.idClient = reserve.idClient INNER JOIN restaurant ON reserve.idRestaurant = restaurant.idRestaurant INNER JOIN ville ON restaurant.idVille = ville.idVille WHERE client.idClient = " +
+      idClient,
+    function(error, results, fields) {
+      if (error) throw error;
+      callback(null, results);
+    }
+  );
+};

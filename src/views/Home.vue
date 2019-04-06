@@ -1,26 +1,28 @@
 <template>
-  <div>
-    <v-layout row wrap>
-      <v-flex xs12>
-        <searchBar v-on:cityIdChild="getCityId"/>
-      </v-flex>
+  <v-slide-y-transition mode="out-in">
+    <div>
+      <v-layout row wrap>
+        <v-flex xs12>
+          <searchBar v-on:cityIdChild="getCityId"/>
+        </v-flex>
 
-      <v-flex xs12>
-        <v-list>
-          <template v-for="(restaurant) in restaurants">
-            <router-link
-              :to="{name: 'restaurant', params:{idRestaurant: restaurant.idRestaurant}}"
-              :key="restaurant.idRestaurant"
-            >
-              <cardRestaurant :restaurant="restaurant"/>
-            </router-link>
-          </template>
-        </v-list>
-      </v-flex>
-    </v-layout>
+        <v-flex xs12>
+          <v-list>
+            <template v-for="(restaurant) in restaurants">
+              <router-link
+                :to="{name: 'restaurant', params:{idRestaurant: restaurant.idRestaurant}}"
+                :key="restaurant.idRestaurant"
+              >
+                <cardRestaurant :restaurant="restaurant"/>
+              </router-link>
+            </template>
+          </v-list>
+        </v-flex>
+      </v-layout>
 
-    <bottomNavbar/>
-  </div>
+      <bottomNavbar/>
+    </div>
+  </v-slide-y-transition>
 </template>
 
 <script>

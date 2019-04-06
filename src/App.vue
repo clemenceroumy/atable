@@ -3,7 +3,7 @@
     <v-content>
       <snackbar/>
 
-      <v-container pa-0 fluid fill-height align-content-center align-center>
+      <v-container pa-0 fluid>
         <router-view></router-view>
       </v-container>
     </v-content>

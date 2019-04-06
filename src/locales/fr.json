@@ -1,5 +1,6 @@
 {
   "connexion": "Connexion",
+  "disconnect": "Deconnexion",
   "email": "email",
   "password": "mot de passe",
   "noAccount": "Pas inscrit ? ",
@@ -23,6 +24,16 @@
     "type": "type de restaurant",
     "book": "Réserver",
     "bookingOK": "Votre réservation à été enregistrée"
+  },
+
+  "booking": {
+    "booking": "Mes réservations"
+  },
+
+  "account": {
+    "profil": "Gérer mon profil",
+    "notifications": "Gérer les notifications",
+    "deleteAccount": "Supprimer mon compte"
   },
 
   "snackbar": {
