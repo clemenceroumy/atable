@@ -6,6 +6,7 @@ import Signup from "@/views/Signup";
 import Home from "@/views/Home";
 import Restaurant from "@/views/Restaurant";
 import Booking from "@/views/Booking";
+import History from "@/views/History.vue";
 import Account from "@/views/Account";
 
 Vue.use(Router);
@@ -36,6 +37,11 @@ export default new Router({
       path: "/booking",
       name: "booking",
       component: Booking
+    },
+    {
+      path: "/history",
+      name: "history",
+      component: History
     },
     {
       path: "/account",

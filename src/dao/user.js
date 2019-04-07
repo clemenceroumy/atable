@@ -21,4 +21,10 @@ export default class userDao {
       console.log(e);
     });
   }
+
+  static getBookingByUser(userId) {
+    return axios.get(`${config.api}/users/${userId}/booking`).catch(e => {
+      console.log(e);
+    });
+  }
 }

@@ -6,7 +6,7 @@
         <v-icon>home</v-icon>
       </v-btn>
 
-      <v-btn to="booking" color="white" flat :value="$t('navbar.reservation')">
+      <v-btn to="history" color="white" flat :value="$t('navbar.reservation')">
         <span>{{$t('navbar.reservation')}}</span>
         <v-icon>restaurant_menu</v-icon>
       </v-btn>
