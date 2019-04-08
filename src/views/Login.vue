@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-flex xs12 sm6 mx-auto>
         <div class="mx-auto pt-5 text-xs-center mb-4">
-          <img src="../assets/resto_logo.png" alt>
+          <img src="../assets/ic_launcher.png" alt>
           <h3 class="headline mb-0 mt-3">{{$t('connexion')}}</h3>
         </div>
 
@@ -15,7 +15,6 @@
                   class="pb-3"
                   :label="$t('email')"
                   append-icon="account_circle"
-                  dark
                   color="#88879d"
                   v-model="email"
                 ></v-text-field>
@@ -23,7 +22,6 @@
                 <v-text-field
                   :label="$t('password')"
                   append-icon="vpn_key"
-                  dark
                   class="pb-4"
                   color="#88879d"
                   type="password"
@@ -42,10 +40,10 @@
               </v-form>
 
               <div class="mx-auto pb-1 text-xs-center mb-4">
-                <p class="indigo--text text--lighten-4">
+                <p>
                   {{$t('noAccount')}}
                   <span
-                    class="white--text"
+                    style="color: #88879d;"
                     v-on:click="goToSignup()"
                   >{{$t('signup')}}</span>
                 </p>

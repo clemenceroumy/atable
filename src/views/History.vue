@@ -11,7 +11,7 @@
             <template v-for="(booking) in bookings">
               <div :key="booking.date">
                 <cardBooking :booking="booking"/>
-                <v-divider dark></v-divider>
+                <v-divider></v-divider>
               </div>
             </template>
           </v-list>

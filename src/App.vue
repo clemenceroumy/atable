@@ -26,8 +26,7 @@ export default {
 
 <style>
 #app {
-  background: linear-gradient(to right, #1a2457, #2f1a57);
-  color: white;
+  background-color: #f4f6fa;
 }
 </style>
 

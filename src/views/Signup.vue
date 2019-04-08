@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-flex xs12 sm6 mx-auto>
         <div class="mx-auto pt-5 text-xs-center mb-4">
-          <img src="../assets/resto_logo.png" alt>
+          <img src="../assets/ic_launcher.png" alt>
           <h3 class="headline mb-0 mt-3">{{$t('connexion')}}</h3>
         </div>
 
@@ -15,7 +15,6 @@
                   class="pb-1"
                   :label="$t('email')"
                   :rules="emailRule"
-                  dark
                   color="#88879d"
                   v-model="login"
                 ></v-text-field>
@@ -23,7 +22,6 @@
                 <v-text-field
                   :label="$t('password')"
                   :rules="passwordRule"
-                  dark
                   class="pb-1"
                   color="#88879d"
                   :append-icon="showPassword ? 'visibility' : 'visibility_off'"
@@ -34,7 +32,6 @@
 
                 <v-text-field
                   :label="$t('signupPage.name')"
-                  dark
                   :rules="required"
                   class="pb-1"
                   color="#88879d"
@@ -43,7 +40,6 @@
 
                 <v-text-field
                   :label="$t('signupPage.firstName')"
-                  dark
                   :rules="required"
                   class="pb-1"
                   color="#88879d"

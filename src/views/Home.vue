@@ -1,11 +1,13 @@
 <template>
   <v-slide-y-transition mode="out-in">
     <div>
-      <v-layout row wrap>
-        <v-flex xs12>
+      <v-layout row wrap xs12 class="header" align-center>
+        <v-flex xs8 offset-xs2>
           <searchBar v-on:cityIdChild="getCityId"/>
         </v-flex>
+      </v-layout>
 
+      <v-layout row wrap>
         <v-flex xs12>
           <v-list>
             <template v-for="(restaurant) in restaurants">
@@ -65,5 +67,10 @@ export default {
 <style>
 .theme--light.v-list {
   background-color: rgba(0, 0, 0, 0);
+}
+
+.header {
+  background: linear-gradient(to right, #f46b45, #eea849);
+  height: 150px;
 }
 </style>

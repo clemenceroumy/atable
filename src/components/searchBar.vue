@@ -4,11 +4,13 @@
     item-text="name"
     item-value="id"
     :label="$t('home.searchBar')"
-    color="#88879d"
     v-model="cityId"
     v-on:input="getCity"
-    outline
-    dark
+    color="#88879d"
+    background-color="#f4f6fa"
+    height="50"
+    hide-details
+    solo
   ></v-autocomplete>
 </template>
 
@@ -48,4 +50,7 @@ export default {
 </script>
 
 <style>
+.v-input__slot {
+  border-radius: 50px !important;
+}
 </style>
