@@ -30,12 +30,21 @@ exports.getRestaurantByCityId = function(cityId, callback) {
   });
 };
 
-exports.bookRestaurant = function(idRestaurant, idClient, date, callback) {
-  restaurantModel.bookRestaurant(idRestaurant, idClient, date, function(
-    error,
-    data
-  ) {
-    if (error) throw error;
-    callback(null, data);
-  });
+exports.bookRestaurant = function(
+  idRestaurant,
+  idClient,
+  date,
+  nombrePersonne,
+  callback
+) {
+  restaurantModel.bookRestaurant(
+    idRestaurant,
+    idClient,
+    date,
+    nombrePersonne,
+    function(error, data) {
+      if (error) throw error;
+      callback(null, data);
+    }
+  );
 };

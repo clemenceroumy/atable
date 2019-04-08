@@ -32,15 +32,23 @@ exports.getRestaurantByCityId = function(cityId, callback) {
   );
 };
 
-exports.bookRestaurant = function(idRestaurant, idClient, date, callback) {
+exports.bookRestaurant = function(
+  idRestaurant,
+  idClient,
+  date,
+  nombrePersonne,
+  callback
+) {
   connection.query(
-    "INSERT INTO reserve (idRestaurant, idClient, date, estRendu) VALUES (" +
+    "INSERT INTO reserve (idRestaurant, idClient, date, nombrePersonne, estRendu) VALUES (" +
       idRestaurant +
       ", " +
       idClient +
       ", '" +
       date +
-      "', 0)",
+      "'," +
+      nombrePersonne +
+      ", 0)",
     function(error, results, fields) {
       if (error) throw error;
       callback(null, results);

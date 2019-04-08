@@ -1,11 +1,16 @@
 <template>
   <div>
-    <v-menu lazy transition="scale-transition" offset-y :close-on-content-click="false">
-      <v-btn slot="activator" color="success">{{ $t('restaurant.book') }}</v-btn>
-      {{time}}
-      <v-time-picker v-model="time" format="24hr">
-        <v-btn color="success" @click="emitDateTime()">{{ $t('restaurant.book')}}</v-btn>
-      </v-time-picker>
+    <v-menu ref="menu" transition="scale-transition" offset-y>
+      <template v-slot:activator="{ on }">
+        <v-text-field
+          v-model="date"
+          :label="$t('booking.date')"
+          prepend-icon="event"
+          readonly
+          v-on="on"
+        ></v-text-field>
+      </template>
+      <v-date-picker v-model="date" no-title scrollable v-on:input="emitDate" :min="todayDate"></v-date-picker>
     </v-menu>
   </div>
 </template>
@@ -17,13 +22,13 @@ export default {
   name: "DatePicker",
   data() {
     return {
-      time: "",
-      date: dayjs().format("YYYY-MM-DD")
+      date: "",
+      todayDate: dayjs().format("YYYY-MM-DD")
     };
   },
   methods: {
-    emitDateTime() {
-      this.$emit("dateTimeChild", `${this.date} ${this.time}`);
+    emitDate() {
+      this.$emit("dateChild", this.date);
     }
   }
 };

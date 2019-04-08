@@ -19,8 +19,9 @@
         </v-flex>
 
         <v-flex xs12>
-          <datePicker v-on:dateTimeChild="getDateTime"/>
-          {{dateTime}}
+          <router-link
+            :to="{name: 'booking', params:{idRestaurant: restaurant.idRestaurant}}"
+          >{{$t('booking.book')}}</router-link>
         </v-flex>
       </v-layout>
     </v-container>
@@ -29,50 +30,27 @@
 
 <script>
 import btnBack from "../components/btnBack";
-import datePicker from "../components/datePicker";
 
 import { mapState } from "vuex";
 import restaurantDao from "../dao/restaurant.js";
 
 export default {
   name: "Restaurant",
-  components: { btnBack, datePicker },
+  components: { btnBack },
   data() {
     return {
       restaurantId: this.$route.params.idRestaurant,
-      restaurant: {},
-      dateTime: ""
+      restaurant: {}
     };
   },
   computed: {
     ...mapState(["user"])
   },
   created() {
-    console.log(this.user);
-
     restaurantDao.getRestaurantById(this.restaurantId).then(response => {
       this.restaurant = response.data;
-      console.log(this.restaurant);
     });
   },
-  methods: {
-    getDateTime(value) {
-      this.dateTime = value;
-
-      restaurantDao
-        .bookRestaurant({
-          idRestaurant: this.restaurantId,
-          idClient: this.$store.state.user.idClient,
-          date: value
-        })
-        .then(response => {
-          this.$store.commit("setShowSnackbar", {
-            value: true,
-            message: this.$t("restaurant.bookingOK"),
-            color: "green lighten-1"
-          });
-        });
-    }
-  }
+  methods: {}
 };
 </script>

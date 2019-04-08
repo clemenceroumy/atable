@@ -16,6 +16,7 @@ module.exports = function(app) {
       value.idRestaurant,
       value.idClient,
       value.date,
+      value.nombrePersonne,
       function(error, data) {
         if (error) throw error;
         res.send(data);

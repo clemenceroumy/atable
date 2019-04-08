@@ -21,8 +21,14 @@
 
   "restaurant": {
     "numberPlace": "Nombre de places total",
-    "type": "type de restaurant",
+    "type": "type de restaurant"
+  },
+
+  "booking": {
     "book": "Réserver",
+    "date": "jour de réservation",
+    "time": "heure de réservation",
+    "numberSeats": "Nombre de personnes",
     "bookingOK": "Votre réservation à été enregistrée"
   },
 

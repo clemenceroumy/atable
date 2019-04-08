@@ -34,7 +34,7 @@ export default new Router({
       component: Restaurant
     },
     {
-      path: "/booking",
+      path: "/booking/:idRestaurant",
       name: "booking",
       component: Booking
     },
