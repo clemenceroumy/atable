@@ -26,5 +26,5 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
-    <preference name="StatusBarBackgroundColor" value="#17214f" />
+    <preference name="StatusBarBackgroundColor" value=" #d9390d" />
 </widget>
