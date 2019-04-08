@@ -8,15 +8,10 @@
       </v-layout>
 
       <v-layout row wrap>
-        <v-flex xs12>
+        <v-flex xs10 offset-xs1>
           <v-list>
             <template v-for="(restaurant) in restaurants">
-              <router-link
-                :to="{name: 'restaurant', params:{idRestaurant: restaurant.idRestaurant}}"
-                :key="restaurant.idRestaurant"
-              >
-                <cardRestaurant :restaurant="restaurant"/>
-              </router-link>
+              <cardRestaurant :key="restaurant.idRestaurant" :restaurant="restaurant"/>
             </template>
           </v-list>
         </v-flex>
