@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-btn icon @click="goBack()">
-      <v-icon>arrow_back_ios</v-icon>
+    <v-btn color="white" icon @click="goBack()">
+      <v-icon color="#f46b45">arrow_back</v-icon>
     </v-btn>
   </div>
 </template>

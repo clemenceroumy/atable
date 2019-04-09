@@ -1,11 +1,12 @@
 <template>
-  <v-btn :color="color" v-on:click="action" round class="mx-auto" large>{{libelle}}</v-btn>
+  <v-btn v-if="to" :to="to" :color="color" round large block>{{libelle}}</v-btn>
+  <v-btn v-else :color="color" v-on:click="action" round large block>{{libelle}}</v-btn>
 </template>
 
 <script>
 export default {
   name: "Button",
-  props: ["color", "action", "libelle"]
+  props: ["color", "action", "libelle", "to"]
 };
 </script>
 

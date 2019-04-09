@@ -20,7 +20,7 @@
   },
 
   "restaurant": {
-    "numberPlace": "Nombre de places total",
+    "numberPlace": "Nombre de places",
     "type": "type de restaurant"
   },
 
