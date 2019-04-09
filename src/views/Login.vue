@@ -29,13 +29,7 @@
                 ></v-text-field>
 
                 <v-layout class="pt-2 pb-5">
-                  <v-btn
-                    v-on:click="connectUser"
-                    color="#ffffff"
-                    round
-                    large
-                    class="mx-auto"
-                  >{{$t('connexion')}}</v-btn>
+                  <Button :action="connectUser" :libelle="$t('connexion')" color="white"/>
                 </v-layout>
               </v-form>
 
@@ -58,11 +52,15 @@
 
 <script>
 import { mapState } from "vuex";
-
 import userDao from "../dao/user.js";
+
+import Button from "../components/button";
 
 export default {
   name: "login",
+  components: {
+    Button
+  },
   data() {
     return {
       email: "",
