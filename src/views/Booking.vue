@@ -1,34 +1,34 @@
 <template>
   <v-slide-y-transition mode="out-in">
-    <v-container grid-list-xs>
-      <v-layout row wrap>
-        <btnBack/>
-        <h1>{{restaurant.nomRestaurant}}</h1>
+    <div>
+      <v-layout row wrap xs12 class="headerBooking" align-center>
+        <btnBack class="ml-3"/>
+        <h1 class="ml-3 white--text">{{restaurant.nomRestaurant}}</h1>
       </v-layout>
 
-      <v-layout row wrap>
-        <v-flex xs12>
-          <datePicker v-on:dateChild="getDate"/>
-        </v-flex>
-      </v-layout>
+      <v-layout column wrap class="ma-5">
+        <datePicker v-on:dateChild="getDate"/>
 
-      <v-layout row wrap>
         <timePicker v-on:timeChild="getTime"/>
-      </v-layout>
 
-      <v-layout row wrap>
         <v-text-field
           name="numberSeats"
+          color="#f46b45"
           :label="$t('booking.numberSeats')"
           v-model="numberSeats"
           prepend-icon="person"
         ></v-text-field>
-      </v-layout>
 
-      <v-layout row wrap>
-        <v-btn color="success" v-on:click="bookRestaurant">{{$t('booking.book')}}</v-btn>
+        <v-flex xs1 class="mt-4">
+          <Button
+            class="mt-4"
+            color="#f46b45"
+            :libelle="$t('booking.book')"
+            :action="bookRestaurant"
+          />
+        </v-flex>
       </v-layout>
-    </v-container>
+    </div>
   </v-slide-y-transition>
 </template>
 
@@ -36,12 +36,13 @@
 import datePicker from "../components/datePicker";
 import timePicker from "../components/timePicker";
 import btnBack from "../components/btnBack";
+import Button from "../components/button";
 
 import restaurantDao from "../dao/restaurant.js";
 
 export default {
   name: "Booking",
-  components: { btnBack, datePicker, timePicker },
+  components: { btnBack, datePicker, timePicker, Button },
   data() {
     return {
       restaurant: {},
@@ -86,4 +87,8 @@ export default {
 </script>
 
 <style>
+.headerBooking {
+  height: 100px;
+  background: linear-gradient(to right, #f46b45, #eea849);
+}
 </style>

@@ -1,18 +1,24 @@
 <template>
-  <div>
-    <v-menu ref="menu" transition="scale-transition" offset-y>
-      <template v-slot:activator="{ on }">
-        <v-text-field
-          v-model="date"
-          :label="$t('booking.date')"
-          prepend-icon="event"
-          readonly
-          v-on="on"
-        ></v-text-field>
-      </template>
-      <v-date-picker v-model="date" no-title scrollable v-on:input="emitDate" :min="todayDate"></v-date-picker>
-    </v-menu>
-  </div>
+  <v-dialog ref="menu" transition="scale-transition">
+    <template v-slot:activator="{ on }">
+      <v-text-field
+        v-model="date"
+        :label="$t('booking.date')"
+        prepend-icon="event"
+        readonly
+        v-on="on"
+        color="#f46b45"
+      ></v-text-field>
+    </template>
+    <v-date-picker
+      locale="fr"
+      color="#f46b45"
+      v-model="date"
+      scrollable
+      v-on:input="emitDate"
+      :min="todayDate"
+    ></v-date-picker>
+  </v-dialog>
 </template>
 
 <script>
@@ -33,3 +39,11 @@ export default {
   }
 };
 </script>
+
+<style>
+.v-dialog {
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+}
+</style>

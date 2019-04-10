@@ -6,7 +6,7 @@
 <script>
 export default {
   name: "Button",
-  props: ["color", "action", "libelle", "to"]
+  props: ["textColor", "color", "action", "libelle", "to"]
 };
 </script>
 

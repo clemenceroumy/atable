@@ -1,5 +1,5 @@
 <template>
-  <v-menu ref="menu" lazy transition="scale-transition" offset-y>
+  <v-dialog ref="menu" transition="scale-transition">
     <template v-slot:activator="{ on }">
       <v-text-field
         v-model="time"
@@ -7,10 +7,11 @@
         prepend-icon="access_time"
         readonly
         v-on="on"
+        color="#f46b45"
       ></v-text-field>
     </template>
-    <v-time-picker format="24hr" v-model="time" full-width v-on:input="emitTime"></v-time-picker>
-  </v-menu>
+    <v-time-picker color="#f46b45" format="24hr" v-model="time" v-on:input="emitTime"></v-time-picker>
+  </v-dialog>
 </template>
 
 <script>
