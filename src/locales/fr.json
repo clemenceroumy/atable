@@ -48,7 +48,8 @@
     "currentPassword": "Mot de passe actuel",
     "newPassword": "Nouveau mot de passe",
     "deleteAccount": "Supprimer mon compte",
-    "deleteTitle": "Suppression du compte"
+    "deleteTitle": "Suppression du compte",
+    "passwordChangedSnack": "Votre mot de passe à été modifié"
   },
 
   "snackbar": {

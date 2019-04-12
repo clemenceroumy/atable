@@ -31,7 +31,7 @@
             v-model="newPassword"
           ></v-text-field>
 
-          <Button color="white" action :libelle="$t('confirm')"/>
+          <Button color="white" :action="updatePassword" :libelle="$t('confirm')"/>
         </v-flex>
       </v-layout>
 
@@ -66,6 +66,30 @@ export default {
     userDao.getUser(this.$store.state.user.idClient).then(result => {
       this.user = result.data[0];
     });
+  },
+  methods: {
+    updatePassword() {
+      let user = {
+        idClient: this.$store.state.user.idClient,
+        currentPassword: this.currentPassword,
+        newPassword: this.newPassword
+      };
+      userDao.updatePassword(user).then(result => {
+        if (typeof result.data === "object") {
+          this.$store.commit("setShowSnackbar", {
+            value: true,
+            message: this.$t("manageAccount.passwordChangedSnack"),
+            color: "green lighten-1"
+          });
+        } else {
+          this.$store.commit("setShowSnackbar", {
+            value: true,
+            message: this.$t(result.data),
+            color: "red lighten-1"
+          });
+        }
+      });
+    }
   }
 };
 </script>

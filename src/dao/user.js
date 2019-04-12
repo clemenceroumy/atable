@@ -22,6 +22,12 @@ export default class userDao {
     });
   }
 
+  static updatePassword(user) {
+    return axios.post(`${config.api}/users/updatePassword`, user).catch(e => {
+      console.log(e);
+    });
+  }
+
   static getBookingByUser(userId) {
     return axios.get(`${config.api}/users/${userId}/booking`).catch(e => {
       console.log(e);
