@@ -49,6 +49,33 @@ exports.signupUser = function(payload, callback) {
   );
 };
 
+exports.checkPassword = function(idClient, password, callback) {
+  connection.query(
+    "SELECT idClient FROM client WHERE idClient = '" +
+      idClient +
+      "' AND password = '" +
+      password +
+      "'",
+    function(error, results, fields) {
+      if (error) throw error;
+      callback(null, results);
+    }
+  );
+};
+
+exports.updatePassword = function(idClient, password, callback) {
+  connection.query(
+    "UPDATE client SET password= '" +
+      password +
+      "' WHERE idClient = " +
+      idClient,
+    function(error, results, fields) {
+      if (error) throw error;
+      callback(null, results);
+    }
+  );
+};
+
 exports.checkIfUserExist = function(login, callback) {
   connection.query(
     "SELECT login FROM client WHERE login = '" + login + "'",

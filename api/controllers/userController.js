@@ -38,6 +38,26 @@ exports.signupUser = function(payload, callback) {
   });
 };
 
+exports.updatePassword = function(
+  idClient,
+  currentPassword,
+  newPassword,
+  callback
+) {
+  userModel.checkPassword(idClient, currentPassword, function(error, data) {
+    if (error) throw error;
+
+    if (data.length > 0) {
+      userModel.updatePassword(idClient, newPassword, function(error, data) {
+        if (error) throw error;
+        callback(null, data);
+      });
+    } else {
+      callback(null, "Le mot de passe actuel n'est pas correct");
+    }
+  });
+};
+
 exports.getReservationByUser = function(idClient, callback) {
   userModel.getReservationByUser(idClient, function(error, data) {
     if (error) throw error;

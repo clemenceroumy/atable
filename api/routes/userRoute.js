@@ -34,6 +34,19 @@ module.exports = function(app) {
     });
   });
 
+  app.route("/users/updatePassword").post(function(req, res) {
+    let client = req.body;
+    var result = user.updatePassword(
+      client.idClient,
+      client.currentPassword,
+      client.newPassword,
+      function(error, data) {
+        if (error) throw error;
+        res.send(data);
+      }
+    );
+  });
+
   app.route("/users/:userID").get(function(req, res) {
     let userID = req.params.userID;
     var result = user.getUser(userID, function(error, data) {
