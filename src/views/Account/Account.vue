@@ -15,9 +15,9 @@
             <template v-for="item in items">
               <div :key="item.title">
                 <v-list-tile>
-                  <v-list-tile-content>
+                  <router-link :to="item.link">
                     <v-list-tile-title v-text="item.title"></v-list-tile-title>
-                  </v-list-tile-content>
+                  </router-link>
                 </v-list-tile>
                 <v-divider></v-divider>
               </div>
@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import bottomNavbar from "../components/bottomNavbar";
+import bottomNavbar from "../../components/bottomNavbar";
 
-import userDao from "../dao/user.js";
+import userDao from "../../dao/user.js";
 
 export default {
   name: "Account",
@@ -46,9 +46,9 @@ export default {
     return {
       user: {},
       items: [
-        { title: this.$t("account.profil") },
-        { title: this.$t("account.notifications") },
-        { title: this.$t("account.deleteAccount") }
+        { title: this.$t("account.profil"), link: "manageAccount" },
+        { title: this.$t("account.notifications"), link: "" },
+        { title: this.$t("account.favorites"), link: "" }
       ]
     };
   },

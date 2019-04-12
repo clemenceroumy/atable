@@ -7,6 +7,7 @@
   "signup": "Créer un compte",
 
   "close": "fermer",
+  "confirm": "Confirmer",
 
   "signupPage": {
     "name": "nom",
@@ -39,7 +40,15 @@
   "account": {
     "profil": "Gérer mon profil",
     "notifications": "Gérer les notifications",
-    "deleteAccount": "Supprimer mon compte"
+    "favorites": "Mes restaurants favoris"
+  },
+
+  "manageAccount": {
+    "changePassword": "Modifier votre mot de passe",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "deleteAccount": "Supprimer mon compte",
+    "deleteTitle": "Suppression du compte"
   },
 
   "snackbar": {

@@ -7,7 +7,9 @@ import Home from "@/views/Home";
 import Restaurant from "@/views/Restaurant";
 import Booking from "@/views/Booking";
 import History from "@/views/History.vue";
-import Account from "@/views/Account";
+
+import Account from "@/views/Account/Account";
+import ManageAccount from "@/views/Account/ManageAccount";
 
 Vue.use(Router);
 
@@ -47,6 +49,11 @@ export default new Router({
       path: "/account",
       name: "account",
       component: Account
+    },
+    {
+      path: "/manageAccount",
+      name: "manageAccount",
+      component: ManageAccount
     }
   ]
 });
