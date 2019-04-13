@@ -1,6 +1,8 @@
 <template>
   <v-slide-y-transition mode="out-in">
     <div>
+      <Dialog :dialog="showDialog" v-on:emitDialog="(value) => showDialog = value"/>
+
       <v-layout column wrap>
         <v-img style="height: 100px;" :src="user.photoClient" contain/>
         <h1>{{`${user.prenomClient} ${user.nomClient}`}}</h1>
@@ -37,7 +39,7 @@
 
       <v-layout column wrap>
         <v-subheader>{{$t('manageAccount.deleteTitle')}}</v-subheader>
-        <p v-on:click="deleteAccout" color="error">{{$t('manageAccount.deleteAccount')}}</p>
+        <p v-on:click="showDialog = true" color="error">{{$t('manageAccount.deleteAccount')}}</p>
       </v-layout>
     </div>
   </v-slide-y-transition>
@@ -46,20 +48,22 @@
 <script>
 import BtnBack from "../../components/btnBack";
 import Button from "../../components/button";
+import Dialog from "../../components/dialog";
 
 import { passwordRules } from "../../helpers/validation.js";
 import userDao from "../../dao/user.js";
 
 export default {
   name: "ManageAccount",
-  components: { BtnBack, Button },
+  components: { BtnBack, Button, Dialog },
   data() {
     return {
       user: {},
       currentPassword: "",
       newPassword: "",
       showPassword: false,
-      passwordRule: passwordRules
+      passwordRule: passwordRules,
+      showDialog: false
     };
   },
   created() {
@@ -88,13 +92,6 @@ export default {
             color: "red lighten-1"
           });
         }
-      });
-    },
-
-    deleteAccout() {
-      userDao.deleteUser(this.$store.state.user.idClient).then(result => {
-        this.$router.push("/");
-        this.$store.commit("disconnect");
       });
     }
   }

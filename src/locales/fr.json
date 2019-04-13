@@ -7,7 +7,8 @@
   "signup": "Créer un compte",
 
   "close": "fermer",
-  "confirm": "Confirmer",
+  "confirm": "confirmer",
+  "cancel": "annuler",
 
   "signupPage": {
     "name": "nom",
@@ -49,7 +50,9 @@
     "newPassword": "Nouveau mot de passe",
     "deleteAccount": "Supprimer mon compte",
     "deleteTitle": "Suppression du compte",
-    "passwordChangedSnack": "Votre mot de passe à été modifié"
+    "passwordChangedSnack": "Votre mot de passe à été modifié",
+    "deleteText": "Êtes-vous sûr de vouloir supprimer votre compte ? ",
+    "deleteExplain": "Une fois votre compte supprimé, vous ne pourrez plus le récupèrer, ni avoir accès à vos données."
   },
 
   "snackbar": {
