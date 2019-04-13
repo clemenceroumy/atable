@@ -22,6 +22,12 @@ export default class userDao {
     });
   }
 
+  static deleteUser(userId) {
+    return axios.delete(`${config.api}/users/${userId}`).catch(e => {
+      console.log(e);
+    });
+  }
+
   static updatePassword(user) {
     return axios.post(`${config.api}/users/updatePassword`, user).catch(e => {
       console.log(e);

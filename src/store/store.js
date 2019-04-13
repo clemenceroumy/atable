@@ -23,6 +23,9 @@ export default new Vuex.Store({
       state.showSnackbar = false;
       state.messageSnackbar = null;
       state.colorSnackbar = null;
+    },
+    disconnect: state => {
+      state.user = null;
     }
   },
   actions: {}

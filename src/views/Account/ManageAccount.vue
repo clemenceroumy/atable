@@ -37,7 +37,7 @@
 
       <v-layout column wrap>
         <v-subheader>{{$t('manageAccount.deleteTitle')}}</v-subheader>
-        <p color="error">{{$t('manageAccount.deleteAccount')}}</p>
+        <p v-on:click="deleteAccout" color="error">{{$t('manageAccount.deleteAccount')}}</p>
       </v-layout>
     </div>
   </v-slide-y-transition>
@@ -88,6 +88,13 @@ export default {
             color: "red lighten-1"
           });
         }
+      });
+    },
+
+    deleteAccout() {
+      userDao.deleteUser(this.$store.state.user.idClient).then(result => {
+        this.$router.push("/");
+        this.$store.commit("disconnect");
       });
     }
   }
