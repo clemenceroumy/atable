@@ -54,4 +54,12 @@ module.exports = function(app) {
       res.send(data);
     });
   });
+
+  app.route("/users/:idClient").delete(function(req, res) {
+    let idClient = req.params.idClient;
+    var result = user.deleteUser(idClient, function(error, data) {
+      if (error) throw error;
+      res.send(data);
+    });
+  });
 };

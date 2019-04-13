@@ -76,6 +76,17 @@ exports.updatePassword = function(idClient, password, callback) {
   );
 };
 
+exports.deleteAccount = function(idClient, callback) {
+  connection.query("DELETE FROM client WHERE idClient = " + idClient, function(
+    error,
+    results,
+    fields
+  ) {
+    if (error) throw error;
+    callback(null, results);
+  });
+};
+
 exports.checkIfUserExist = function(login, callback) {
   connection.query(
     "SELECT login FROM client WHERE login = '" + login + "'",

@@ -38,6 +38,13 @@ exports.signupUser = function(payload, callback) {
   });
 };
 
+exports.deleteUser = function(idClient, callback) {
+  userModel.deleteAccount(idClient, function(error, data) {
+    if (error) throw error;
+    callback(null, data);
+  });
+};
+
 exports.updatePassword = function(
   idClient,
   currentPassword,
