@@ -40,8 +40,8 @@ export default class userDao {
     });
   }
 
-  static getFavoriteRestaurant(userId) {
-    return axios.get(`${config.api}/users/${userId}/favorite`).catch(e => {
+  static getAllFavoritesRestaurants(userId) {
+    return axios.get(`${config.api}/users/${userId}/favorites`).catch(e => {
       console.log(e);
     });
   }

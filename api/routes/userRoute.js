@@ -26,9 +26,36 @@ module.exports = function(app) {
     });
   });
 
-  app.route("/users/:idClient/favorite").get(function(req, res) {
+  app.route("/users/:idClient/favorites").get(function(req, res) {
     let idClient = req.params.idClient;
-    var result = user.getFavoriteRestaurant(idClient, function(error, data) {
+    var result = user.getAllFavoritesRestaurants(idClient, function(
+      error,
+      data
+    ) {
+      if (error) throw error;
+      res.send(data);
+    });
+  });
+
+  app.route("/users/:idClient/favorites/:idRestaurant").get(function(req, res) {
+    let idClient = req.params.idClient;
+    let idRestaurant = req.params.idRestaurant;
+    var result = user.getFavoriteRestaurant(idClient, idRestaurant, function(
+      error,
+      data
+    ) {
+      if (error) throw error;
+      res.send(data);
+    });
+  });
+
+  app.route("/users/addFavorite").post(function(req, res) {
+    let idClient = req.body.idClient;
+    let idRestaurant = req.body.idRestaurant;
+    var result = user.addFavoriteRestaurant(idClient, idRestaurant, function(
+      error,
+      data
+    ) {
       if (error) throw error;
       res.send(data);
     });

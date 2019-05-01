@@ -108,10 +108,34 @@ exports.getReservationByUser = function(idClient, callback) {
   );
 };
 
-exports.getFavoriteRestaurant = function(idClient, callback) {
+exports.getAllFavoritesRestaurants = function(idClient, callback) {
   connection.query(
     "SELECT afavoris.idClient, restaurant.idRestaurant, nomRestaurant, logoRestaurant, nomVille FROM restaurant INNER JOIN afavoris ON restaurant.idRestaurant = afavoris.idRestaurant INNER JOIN ville ON ville.idVille = restaurant.idVille WHERE afavoris.idClient = " +
       idClient,
+    function(error, results, fields) {
+      if (error) throw error;
+      callback(null, results);
+    }
+  );
+};
+
+//CHECK IF A RESTAURANT IS FAVORITE OF AN USER
+exports.getFavoriteRestaurant = function(idClient, idRestaurant, callback) {
+  connection.query(
+    "SELECT afavoris.idClient, afavoris.idRestaurant FROM afavoris WHERE afavoris.idClient = " +
+      idClient +
+      " AND idRestaurant=" +
+      idRestaurant,
+    function(error, results, fields) {
+      if (error) throw error;
+      callback(null, results);
+    }
+  );
+};
+
+exports.addFavoriteRestaurant = function(idClient, idRestaurant, callback) {
+  connection.query(
+    "INSERT INTO afavoris VALUES (" + idClient + "," + idRestaurant + ") ",
     function(error, results, fields) {
       if (error) throw error;
       callback(null, results);

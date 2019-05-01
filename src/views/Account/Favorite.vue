@@ -35,7 +35,7 @@ export default {
   },
   created() {
     userDao
-      .getFavoriteRestaurant(this.$store.state.user.idClient)
+      .getAllFavoritesRestaurants(this.$store.state.user.idClient)
       .then(result => {
         this.restaurants = result.data;
       });

@@ -72,8 +72,34 @@ exports.getReservationByUser = function(idClient, callback) {
   });
 };
 
-exports.getFavoriteRestaurant = function(idClient, callback) {
-  userModel.getFavoriteRestaurant(idClient, function(error, data) {
+exports.getAllFavoritesRestaurants = function(idClient, callback) {
+  userModel.getAllFavoritesRestaurants(idClient, function(error, data) {
+    if (error) throw error;
+    callback(null, data);
+  });
+};
+
+//CHECK IF A RESTAURANT IS FAVORITE OF AN USER
+exports.getFavoriteRestaurant = function(idClient, idRestaurant, callback) {
+  userModel.getFavoriteRestaurant(idClient, idRestaurant, function(
+    error,
+    data
+  ) {
+    if (error) throw error;
+
+    if (data.length > 0) {
+      callback(null, { isFavorite: true });
+    } else {
+      callback(null, { isFavorite: false });
+    }
+  });
+};
+
+exports.addFavoriteRestaurant = function(idClient, idRestaurant, callback) {
+  userModel.addFavoriteRestaurant(idClient, idRestaurant, function(
+    error,
+    data
+  ) {
     if (error) throw error;
     callback(null, data);
   });
