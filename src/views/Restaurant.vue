@@ -13,8 +13,8 @@
         </v-flex>
 
         <v-layout xs6 column wrap align-end class="pa-3">
-          <v-btn icon color="white">
-            <v-icon small color="#f46b45">favorite_border</v-icon>
+          <v-btn v-on:click="manageFavorite" icon color="white">
+            <v-icon small color="#f46b45">{{logo}}</v-icon>
           </v-btn>
         </v-layout>
       </v-layout>
@@ -66,6 +66,7 @@ import Button from "../components/button";
 
 import { mapState } from "vuex";
 import restaurantDao from "../dao/restaurant.js";
+import userDao from "../dao/user.js";
 
 export default {
   name: "Restaurant",
@@ -73,7 +74,8 @@ export default {
   data() {
     return {
       restaurantId: this.$route.params.idRestaurant,
-      restaurant: {}
+      restaurant: {},
+      logo: "favorite_border"
     };
   },
   computed: {
@@ -83,8 +85,43 @@ export default {
     restaurantDao.getRestaurantById(this.restaurantId).then(response => {
       this.restaurant = response.data;
     });
+
+    userDao
+      .getFavoriteRestaurant(this.$store.state.user.idClient, this.restaurantId)
+      .then(result => {
+        if (result.data.isFavorite) {
+          this.logo = "favorite";
+        }
+      });
   },
-  methods: {}
+  methods: {
+    manageFavorite() {
+      //Get status of the restaurant (isFavorite: true OR false)
+      userDao
+        .getFavoriteRestaurant(
+          this.$store.state.user.idClient,
+          this.restaurantId
+        )
+        .then(result => {
+          let item = {
+            idClient: this.$store.state.user.idClient,
+            idRestaurant: this.restaurantId
+          };
+          //IF restaurant is favorite => delete from fav
+          if (result.data.isFavorite) {
+            userDao.deleteFavoriteRestaurant(item).then(() => {
+              this.logo = "favorite_border";
+            });
+          }
+          //IF restaurant isn't favorite => add to fav
+          else {
+            userDao.addFavoriteRestaurant(item).then(() => {
+              this.logo = "favorite";
+            });
+          }
+        });
+    }
+  }
 };
 </script>
 

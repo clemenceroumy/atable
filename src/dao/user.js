@@ -53,4 +53,18 @@ export default class userDao {
         console.log(e);
       });
   }
+
+  static addFavoriteRestaurant(item) {
+    return axios.post(`${config.api}/users/addFavorite`, item).catch(e => {
+      console.log(e);
+    });
+  }
+
+  static deleteFavoriteRestaurant(item) {
+    return axios
+      .delete(`${config.api}/users/deleteFavorite`, { data: item })
+      .catch(e => {
+        console.log(e);
+      });
+  }
 }
