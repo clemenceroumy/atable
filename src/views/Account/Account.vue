@@ -26,7 +26,7 @@
         </v-layout>
 
         <v-layout row wrap>
-          <v-btn color="error">{{$t('disconnect')}}</v-btn>
+          <v-btn color="error" v-on:click="doLogout">{{$t('disconnect')}}</v-btn>
         </v-layout>
       </v-container>
       <bottomNavbar/>
@@ -57,6 +57,12 @@ export default {
       this.user = result.data[0];
       console.log(this.user);
     });
+  },
+  methods: {
+    doLogout() {
+      this.$store.commit("disconnect");
+      this.$router.push("/");
+    }
   }
 };
 </script>

@@ -107,3 +107,27 @@ exports.getReservationByUser = function(idClient, callback) {
     }
   );
 };
+
+exports.getFavoriteRestaurant = function(idClient, callback) {
+  connection.query(
+    "SELECT afavoris.idClient, restaurant.idRestaurant, nomRestaurant, logoRestaurant, nomVille FROM restaurant INNER JOIN afavoris ON restaurant.idRestaurant = afavoris.idRestaurant INNER JOIN ville ON ville.idVille = restaurant.idVille WHERE afavoris.idClient = " +
+      idClient,
+    function(error, results, fields) {
+      if (error) throw error;
+      callback(null, results);
+    }
+  );
+};
+
+exports.deleteFavoriteRestaurant = function(idClient, idRestaurant, callback) {
+  connection.query(
+    "DELETE FROM afavoris WHERE idRestaurant = " +
+      idRestaurant +
+      " AND idClient = " +
+      idClient,
+    function(error, results, fields) {
+      if (error) throw error;
+      callback(null, results);
+    }
+  );
+};

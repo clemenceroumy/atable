@@ -1,4 +1,4 @@
-#Sat Apr 13 09:17:21 CEST 2019
+#Tue Apr 30 17:57:44 CEST 2019
 base.0=C\:\\Users\\cleme\\Desktop\\cours\\atable\\cordova_app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

@@ -71,3 +71,20 @@ exports.getReservationByUser = function(idClient, callback) {
     callback(null, data);
   });
 };
+
+exports.getFavoriteRestaurant = function(idClient, callback) {
+  userModel.getFavoriteRestaurant(idClient, function(error, data) {
+    if (error) throw error;
+    callback(null, data);
+  });
+};
+
+exports.deleteFavoriteRestaurant = function(idClient, idRestaurant, callback) {
+  userModel.deleteFavoriteRestaurant(idClient, idRestaurant, function(
+    error,
+    data
+  ) {
+    if (error) throw error;
+    callback(null, data);
+  });
+};
