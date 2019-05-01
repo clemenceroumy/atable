@@ -19,7 +19,7 @@
 
       <v-flex xs2>
         <v-btn fab dark small color="white">
-          <v-icon color="orange">favorite_border</v-icon>
+          <v-icon color="orange">{{logo}}</v-icon>
         </v-btn>
       </v-flex>
     </v-layout>
@@ -27,11 +27,27 @@
 </template>
 
 <script>
+import userDao from "../dao/user.js";
+
 export default {
   name: "cardRestaurant",
   props: ["restaurant"],
   data() {
-    return {};
+    return {
+      logo: "favorite_border"
+    };
+  },
+  created() {
+    userDao
+      .getFavoriteRestaurant(
+        this.$store.state.user.idClient,
+        this.restaurant.idRestaurant
+      )
+      .then(result => {
+        if (result.data.isFavorite) {
+          this.logo = "favorite";
+        }
+      });
   }
 };
 </script>
