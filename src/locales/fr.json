@@ -55,6 +55,10 @@
     "deleteExplain": "Une fois votre compte supprimé, vous ne pourrez plus le récupèrer, ni avoir accès à vos données."
   },
 
+  "favorite": {
+    "favorite": "Mes restaurants préferés"
+  },
+
   "snackbar": {
     "errorLogin": "L'identifiant ou le mot de passe est incorrect"
   },

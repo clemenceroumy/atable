@@ -10,6 +10,7 @@ import History from "@/views/History.vue";
 
 import Account from "@/views/Account/Account";
 import ManageAccount from "@/views/Account/ManageAccount";
+import Favorite from "@/views/Account/Favorite";
 
 Vue.use(Router);
 
@@ -54,6 +55,11 @@ export default new Router({
       path: "/manageAccount",
       name: "manageAccount",
       component: ManageAccount
+    },
+    {
+      path: "/favorite",
+      name: "favorite",
+      component: Favorite
     }
   ]
 });

@@ -48,7 +48,7 @@ export default {
       items: [
         { title: this.$t("account.profil"), link: "manageAccount" },
         { title: this.$t("account.notifications"), link: "" },
-        { title: this.$t("account.favorites"), link: "" }
+        { title: this.$t("account.favorites"), link: "favorite" }
       ]
     };
   },
