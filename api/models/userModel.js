@@ -19,7 +19,7 @@ exports.getUser = function(userID, callback) {
 
 exports.connectUser = function(login, password, callback) {
   connection.query(
-    "SELECT COUNT(idClient) AS haveAccount, idClient, login, password FROM client WHERE login='" +
+    "SELECT COUNT(idClient) AS haveAccount, idClient, login, password, idVille FROM client WHERE login='" +
       login +
       "' AND password='" +
       password +
@@ -33,7 +33,7 @@ exports.connectUser = function(login, password, callback) {
 
 exports.signupUser = function(payload, callback) {
   connection.query(
-    "INSERT INTO client (login, password, nomClient, prenomClient) VALUES('" +
+    "INSERT INTO client (login, password, nomClient, prenomClient, idVille) VALUES('" +
       payload.login +
       "','" +
       payload.password +
@@ -41,7 +41,9 @@ exports.signupUser = function(payload, callback) {
       payload.lastName +
       "','" +
       payload.firstName +
-      "')",
+      "'," +
+      payload.idVille +
+      ")",
     function(error, results, fields) {
       if (error) throw error;
       callback(null, results);

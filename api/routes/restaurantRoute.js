@@ -36,6 +36,18 @@ module.exports = function(app) {
     });
   });
 
+  app.route("/restaurants/:restaurantId/specialite").get(function(req, res) {
+    let restaurantId = req.params.restaurantId;
+
+    var result = restaurant.getRestaurantByIdSpecialite(restaurantId, function(
+      error,
+      data
+    ) {
+      if (error) throw error;
+      res.send(data);
+    });
+  });
+
   app.route("/restaurants/city/:cityId").get(function(req, res) {
     let cityId = req.params.cityId;
 

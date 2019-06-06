@@ -46,6 +46,19 @@
                   v-model="firstName"
                 ></v-text-field>
 
+                <v-autocomplete
+                  :items="cities"
+                  item-text="name"
+                  item-value="id"
+                  :label="$t('home.searchBar')"
+                  v-model="idVille"
+                  color="#88879d"
+                  background-color="#f4f6fa"
+                  height="50"
+                  hide-details
+                  solo
+                ></v-autocomplete>
+
                 <v-layout class="pt-4 pb-2">
                   <v-btn
                     v-on:click="signupUser()"
@@ -71,6 +84,8 @@ import {
 } from "../helpers/validation.js";
 
 import userDao from "../dao/user.js";
+import axios from "axios";
+import config from "../config/config.js";
 
 export default {
   name: "Signup",
@@ -82,11 +97,28 @@ export default {
       password: "",
       lastName: "",
       firstName: "",
+      idVille: 0,
+      cities: [],
 
       required: requiredRule,
       passwordRule: passwordRules,
       emailRule: emailRules
     };
+  },
+  created() {
+    axios
+      .get(`${config.api}/cities`)
+      .then(response => {
+        for (let property in response.data) {
+          this.cities.push({
+            id: response.data[property].idVille,
+            name: response.data[property].nomVille
+          });
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      });
   },
   methods: {
     signupUser() {
@@ -95,7 +127,8 @@ export default {
           login: this.login,
           password: this.password,
           lastName: this.lastName,
-          firstName: this.firstName
+          firstName: this.firstName,
+          idVille: this.idVille
         })
         .then(response => {
           if (typeof response.data === "object") {

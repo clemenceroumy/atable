@@ -36,11 +36,17 @@ export default {
   data() {
     return {
       cityId: 0,
-      restaurants: [] // List of the restaurants
+      restaurants: [], // List of the restaurants,
+      idVilleUser: this.$store.state.user.idVille
     };
   },
   computed: {
     //...mapState(["user"])
+  },
+  created() {
+    restaurantDao.getRestaurantByCity(this.idVilleUser).then(response => {
+      this.restaurants = response.data;
+    });
   },
   watch: {
     cityId: {

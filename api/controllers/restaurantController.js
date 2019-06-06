@@ -14,9 +14,32 @@ exports.getRestaurantById = function(restaurantId, callback) {
     //Make an array containing all types and return one value
     //(Otherwise, return a row with restaurant data for each type)
     data[0].types = [];
+    data[0].specialite = [];
 
     for (let i = 0; i < data.length; i++) {
       data[0].types.push({ id: data[i].idType, libelle: data[i].libelleType });
+    }
+
+    callback(null, data[0]);
+  });
+};
+
+exports.getRestaurantByIdSpecialite = function(restaurantId, callback) {
+  restaurantModel.getRestaurantByIdSpecialite(restaurantId, function(
+    error,
+    data
+  ) {
+    if (error) throw error;
+
+    //Make an array containing all types and return one value
+    //(Otherwise, return a row with restaurant data for each type)
+    data[0].specialite = [];
+
+    for (let i = 0; i < data.length; i++) {
+      data[0].specialite.push({
+        id: data[i].idSpecialite,
+        libelle: data[i].libSpecialite
+      });
     }
 
     callback(null, data[0]);

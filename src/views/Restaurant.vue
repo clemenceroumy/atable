@@ -38,12 +38,27 @@
           xs12
           class="mb-4"
         >
+          <h1>Type</h1>
           <v-chip
             color="#f46b45"
             text-color="white"
             v-for="(type) in restaurant.types"
             :key="type.id"
           >{{type.libelle}}</v-chip>
+        </v-flex>
+
+        <v-flex
+          v-if="restaurantSpecialite.length > 1 || restaurantSpecialite[0].id != null"
+          xs12
+          class="mb-4"
+        >
+          <h1>Specialite</h1>
+          <v-chip
+            color="#f46b45"
+            text-color="white"
+            v-for="(specialite) in restaurantSpecialite"
+            :key="specialite.id"
+          >{{specialite.libelle}}</v-chip>
         </v-flex>
       </v-layout>
 
@@ -75,6 +90,7 @@ export default {
     return {
       restaurantId: this.$route.params.idRestaurant,
       restaurant: {},
+      restaurantSpecialite: [],
       logo: "favorite_border"
     };
   },
@@ -85,6 +101,13 @@ export default {
     restaurantDao.getRestaurantById(this.restaurantId).then(response => {
       this.restaurant = response.data;
     });
+
+    restaurantDao
+      .getRestaurantByIdSpecialite(this.restaurantId)
+      .then(response => {
+        console.log(response.data.specialite);
+        this.restaurantSpecialite = response.data.specialite;
+      });
 
     userDao
       .getFavoriteRestaurant(this.$store.state.user.idClient, this.restaurantId)

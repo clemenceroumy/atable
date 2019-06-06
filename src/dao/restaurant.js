@@ -14,6 +14,14 @@ export default class restaurantDao {
     });
   }
 
+  static getRestaurantByIdSpecialite(restaurantId) {
+    return axios
+      .get(`${config.api}/restaurants/${restaurantId}/specialite`)
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
   static getRestaurantByCity(cityId) {
     return axios.get(`${config.api}/restaurants/city/${cityId}`).catch(e => {
       console.log(e);
